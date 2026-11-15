@@ -1,9 +1,0 @@
-#!/bin/sh
-if [ ! -f "./xray" ]; then
-  curl -L -o xray.zip https://github.com
-  unzip -o xray.zip
-  rm xray.zip
-  chmod +x xray
-fi
-
-node server.js
