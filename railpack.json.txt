@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schema.railpack.com",
+  "buildAptPackages": ["curl", "unzip"],
+  "steps": {
+    "install": {
+      "commands": [
+        "...",
+        "curl -L -o xray.zip https://github.com && unzip -o xray.zip && rm xray.zip && chmod +x xray"
+      ]
+    }
+  },
+  "deploy": {
+    "startCommand": "node server.js"
+  }
+}
