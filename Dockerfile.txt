@@ -1,0 +1,18 @@
+FROM alpine:latest
+
+RUN apk add --no-cache curl unzip nodejs npm
+
+# دانلود هسته Xray
+WORKDIR /app
+RUN curl -L -o xray.zip https://github.com \
+    && unzip xray.zip \
+    && rm xray.zip \
+    && chmod +x xray
+
+# کپی کردن فایل پنل و نصب پکیج‌ها
+COPY server.js /app/server.js
+RUN npm init -y && npm install express ws
+
+EXPOSE 8080
+
+CMD ["node", "server.js"]
